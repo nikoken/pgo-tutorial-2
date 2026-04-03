@@ -1,16 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        Book b1 = new Book("Java Programming", "John Smith", 500);
-        Reader r1 = new Reader("Ahmet", "Yilmaz", 101);
+        Library myLibrary = new Library(5);
 
-        b1.printInfo();
-        r1.printReaderInfo();
+        myLibrary.addBook(new Book("Java Basics", "John Smith", 300));
+        myLibrary.addBook(new Book("Clean Code", "Robert Martin", 450));
 
-        System.out.println("    Borrowing process    ");
-        b1.borrowBook();
-        r1.incrementBorrowed();
+        System.out.println("--- Library Inventory ---");
+        myLibrary.printAllBooks();
 
-        b1.printInfo();
-        r1.printReaderInfo();
+        System.out.println("--- Testing Task 4 ---");
+        myLibrary.borrowByTitle("Java Basics"); 
+        myLibrary.borrowByTitle("Java Basics"); 
+        myLibrary.borrowByTitle("Non-existent Book"); 
+
+        System.out.println("--- Final Status ---");
+        myLibrary.printAllBooks();
     }
 }
